@@ -1,0 +1,53 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+- develop
+- QA
+
+pool: Default
+variables:
+  - group: variables-pipelines
+
+stages:
+  - stage:
+    displayName: 'recette'
+    jobs:
+    - job:
+      displayName: 'my first job'
+      steps: 
+      - script: echo $(nom) !
+        displayName: 'Run a one-line script'
+      - script: 
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+        displayName: 'Run a multi-line script'
+        
+  - stage:
+    displayName: 'Preproduction'
+    jobs:
+    - job:
+      displayName: 'my second job'
+      steps:
+      - script: echo Hello $(trainer) !
+        displayName: 'Run a one-line script'
+      - script: |
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+        displayName: 'Run a multi-line script'
+
+  - stage:
+    displayName: 'Production'
+    jobs:
+    - job:
+      displayName: 'my third job'
+      steps:
+      - script: echo Hello, world!
+        displayName: 'Run a one-line script'
+      - script: |
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+        displayName: 'Run a multi-line script'
